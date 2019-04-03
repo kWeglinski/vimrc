@@ -3,8 +3,12 @@ let $PATH='$HOME/.cargo/bin:/usr/bin:/usr/local/bin:/bin:/usr/sbin:/sbin'
 " Vim Plug
 call plug#begin('~/.vim/plugged')
 " YouCompleteMe
-Plug 'Valloric/YouCompleteMe'
+"Plug 'Valloric/YouCompleteMe'
 
+" React plugins
+Plug 'SirVer/ultisnips'
+Plug 'letientai299/vim-react-snippets', { 'branch': 'es6' }
+Plug 'honza/vim-snippets'
 " Airline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -56,7 +60,6 @@ syntax on
 "let g:molokai_original = 1
 " let g:rehash256 = 1
 " colorscheme srcery
-colorscheme solarized
 
 " Change indent line to look nicer
 let g:indentLine_char = '▏'
@@ -109,3 +112,8 @@ augroup long_lines
     au!
     au BufWinEnter * if !exists('w:m2') | let w:m2=matchadd('ErrorMsg', '\%>85v.\+', -1) | endif
 augroup END
+
+" this should fake system clipboard
+:inoremap <C-v> <ESC>"+pa
+:vnoremap <C-c> "+y
+:vnoremap <C-d> "+d
